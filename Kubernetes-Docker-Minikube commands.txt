@@ -70,5 +70,15 @@ $ kubectl delete -f=deployment.yaml -f=services.yaml
 // GET KUBERNETES STORAGE CLASSES
 $ kubectl get sc
 
-// GET KUBERNETES PERSISTENT CLAIMS
+// GET KUBERNETES PERSISTENT VOLUMES
 $ kubectl get pv
+
+// GET KUBERNETES PERSISTENT CLAIMS
+$ kubectl get pvc
+
+------------------------------------------------------------------
+// APPLY CONFIGMAPS
+$ kubectl apply -f=environment.yaml
+
+// GET KUBERNETES CONFIGMAPS
+$ kubectl get configmap
