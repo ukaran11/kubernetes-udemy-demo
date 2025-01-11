@@ -65,3 +65,10 @@ $ kubectl apply -f=service.yaml
 
 // DELETE RESOURCES(E.G. DEPLOYMENTS, SERVICES)
 $ kubectl delete -f=deployment.yaml -f=services.yaml
+
+-----------------------------------------------------------------------
+// GET KUBERNETES STORAGE CLASSES
+$ kubectl get sc
+
+// GET KUBERNETES PERSISTENT CLAIMS
+$ kubectl get pv

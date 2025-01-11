@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: story-deployment
 spec:
-  replicas: 1
+  replicas: 2
   selector:
     matchLabels:
       app: story
@@ -20,7 +20,5 @@ spec:
               name: story-volume
       volumes:
         - name: story-volume
-          hostPath:
-            path: /data
-            type: DirectoryOrCreate
-          # emptyDir: {}
+          persistentVolumeClaim:
+            claimName: host-pvc
