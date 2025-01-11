@@ -1,0 +1,67 @@
+// STARTING MINIKUBE
+$ minikube start --driver=hyperv
+
+
+// BUILD IMAGE FROM DOCKERFILE
+$ docker build -t ukaran11/kub-first-app-demo:2 .
+
+// TAG YOUR DOCKER IMAGE
+$ docker tag kub-first-app ukaran11/kub-first-app-demo
+
+/// PUSH THE IMAGE TO REPO ONLINE
+$ docker push ukaran11/kub-first-app-demo
+// PUSH THE IMAGE TO REPO ONLINE WITH TAG
+$ docker push ukaran11/kub-first-app-demo:2
+
+
+// CREATE DEPLOYMENT WITH THE IMAGE SET FROM ONLINE REGISTRY (ukaran11/kub-first-app-demo)
+$ kubectl create deployment first-app --image=ukaran11/kub-first-app-demo
+
+// GET DEPLOYMENTS
+$ kubectl get deployments
+
+// GET PODS
+$ kubectl get pods
+
+// GENERATING EXTERNAL IP:PORT WITH MINIKUBE
+$ minikube service first-app
+
+// DELETE DEPLOYMENT
+$ kubectl delete deployment first-app
+
+// SETTING THE DEPLOYMENT IMAGE TO A NEW TAGGED IMAGE
+$ kubectl set image deployment/first-app kub-first-app-demo=ukaran11/kub-first-app-demo:2
+
+// CHECKING THE DEPLOYMENT STATUS
+$ kubectl rollout status deployment/first-app
+
+// UNDO THE LATEST DEPLOYMENT
+$ kubectl rollout undo deployment/first-app
+
+// CHECK ROLLOUT DEPLOYMENT HISTORY
+$ kubectl rollout history deployment/first-app
+
+// CHECK ROLLOUT DEPLOYMENT HISTORY MORE INFO WITH REVISION TAG
+$ kubectl rollout history deployment/first-app --revision=3
+
+// UNDO THE LATEST DEPLOYMENT AND GO TO A SPECIFIC REVISION
+$ kubectl rollout undo deployment/first-app --to-revision=1
+
+
+
+// DELETE SERVICE
+$ kubectl delete service first-app
+
+// DELETE DEPLOYMENT
+$ kubectl delete deployment first-app
+
+
+---------------------------------------------------------------------
+// APPLYING DEPLOYMENT YAML FILE
+$ kubectl apply -f=deployment.yaml
+
+// APPLYING SERVICE YAML FILE
+$ kubectl apply -f=service.yaml
+
+// DELETE RESOURCES(E.G. DEPLOYMENTS, SERVICES)
+$ kubectl delete -f=deployment.yaml -f=services.yaml
