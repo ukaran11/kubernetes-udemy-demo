@@ -66,4 +66,8 @@ app.post("/login", async (req, res) => {
   return res.status(response.status).json({ message: "Logging in failed!" });
 });
 
+app.get("/hi", (req, res) => {
+  res.send("<h1>hi</h1>")
+})
+
 app.listen(8080);
